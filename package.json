@@ -1,12 +1,12 @@
 {
     "name": "@the-real-brogrammer/easy-api",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "API calls made easy!",
     "type": "module",
     "types": "dist/index.d.ts",
     "main": "dist/index.d.ts",
     "publishConfig": {
-        "the-real-brogrammer:registry": "https://npm.pkg.github.com"
+        "registry": "https://npm.pkg.github.com"
     },
     "files": [
         "dist",
