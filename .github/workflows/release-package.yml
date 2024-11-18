@@ -1,8 +1,9 @@
 name: Easy-Peasy-API Build and Publish
 
 on:
-    release:
-        types: [created]
+    push:
+        branches:
+            - main
 
 jobs:
     build:
@@ -29,6 +30,7 @@ jobs:
                   node-version: 18
                   registry-url: https://registry.npmjs.org/
                   token: ${{ secrets.NPM_TOKEN }}
+            - run: cat package.json
             - run: npm install
             - run: npm version patch --no-git-tag-version
-            - run: npm publish --access public
+            - run: npm publish --access public --loglevel verbose
