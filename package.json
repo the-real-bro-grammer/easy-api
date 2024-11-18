@@ -1,6 +1,6 @@
 {
-    "name": "@the-real-brogrammer/easy-api",
-    "version": "0.0.3",
+    "name": "@the-real-bro-grammer/easy-api",
+    "version": "0.0.4",
     "description": "API calls made easy!",
     "type": "module",
     "types": "dist/index.d.ts",
