@@ -1,0 +1,29 @@
+{
+    "name": "@the-real-brogrammer/easy-api",
+    "version": "0.0.1",
+    "description": "API calls made easy!",
+    "type": "module",
+    "types": "dist/index.d.ts",
+    "main": "dist/index.d.ts",
+    "publishConfig": {
+        "the-real-brogrammer:registry": "https://npm.pkg.github.com"
+    },
+    "files": [
+        "dist",
+        "index.js",
+        "index.d.ts"
+    ],
+    "scripts": {
+        "test": "jest",
+        "build": "npx tsc"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.14",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.2.5",
+        "typescript": "^5.6.3"
+    },
+    "dependencies": {
+        "reflect-metadata": "^0.2.2"
+    }
+}

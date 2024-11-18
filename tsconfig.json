@@ -1,0 +1,25 @@
+{
+    // Change this to match your project
+    "include": ["src/**/*"],
+    // We don't need to transpile these directories
+    "exclude": ["node_modules", "dist", "src/tests/**/*"],
+    "compilerOptions": {
+        "target": "ES6",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "declaration": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "emitDeclarationOnly": false,
+        "skipLibCheck": true,
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "declarationMap": true,
+        "module": "esnext",
+        "strict": false,
+        "esModuleInterop": true,
+        "moduleResolution": "Node",
+        "incremental": true
+    }
+}
