@@ -29,6 +29,13 @@ jobs:
                   node-version: 18
                   registry-url: https://registry.npmjs.org/
                   token: ${{ secrets.NPM_TOKEN }}
+            - run: |
+                  # Extract the version from the GitHub Release tag
+                  VERSION=${{ github.event.release.tag_name }}
+                  # Remove the "v" prefix if it exists
+                  VERSION=${VERSION#v}
+                  echo "Setting version to $VERSION"
+                  # Update package.json with the release version
+                  npm version $VERSION --no-git-tag-version
             - run: npm install
-            - run: npm run build
             - run: npm publish --access public

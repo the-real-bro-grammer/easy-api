@@ -1,6 +1,6 @@
 {
     "name": "easy-peasy-api",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "description": "API calls made easy!",
     "type": "module",
     "types": "dist/index.d.ts",
