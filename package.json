@@ -14,7 +14,7 @@
         "index.d.ts"
     ],
     "scripts": {
-        "test": "jest",
+        "test": "jest --passWithNoTests",
         "build": "npx tsc"
     },
     "devDependencies": {
