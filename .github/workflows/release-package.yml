@@ -1,4 +1,4 @@
-name: Easy-API Build
+name: Easy-API Build and Publish
 
 on:
     release:
@@ -12,24 +12,23 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 18
-            - run: npm i
+            - run: npm install
             - run: npm run build
             - run: npm test
 
-    publish-gpr:
+    publish:
         needs: build
         runs-on: ubuntu-latest
         permissions:
-            packages: write
             contents: read
+            packages: write
         steps:
             - uses: actions/checkout@v3
             - uses: actions/setup-node@v3
               with:
                   node-version: 18
-                  registry-url: https://npm.pkg.github.com/
-            - run: npm i
+            - run: npm install
             - run: npm run build
-            - run: npm publish
+            - run: npm publish --access public
               env:
-                  NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
