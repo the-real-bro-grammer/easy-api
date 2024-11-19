@@ -8,29 +8,17 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
-              with:
-                  node-version: 18
-            - run: npm install
-            - run: npm run build
-            - run: npm test
-
-    publish:
-        needs: build
-        runs-on: ubuntu-latest
         permissions:
             contents: read
-            packages: write
+            id-token: write
         steps:
-            - uses: actions/checkout@v3
-            - uses: actions/setup-node@v3
+            - uses: actions/checkout@v4
+            # Setup .npmrc file to publish to npm
+            - uses: actions/setup-node@v4
               with:
-                  node-version: 18
-                  registry-url: https://registry.npmjs.org/
-                  token: ${{ secrets.NPM_TOKEN }}
-            - run: cat package.json
-            - run: npm install
-            - run: npm version patch --no-git-tag-version
-            - run: npm publish --access public --loglevel verbose
+                  node-version: '18.x'
+                  registry-url: 'https://registry.npmjs.org'
+            - run: npm ci
+            - run: npm publish --provenance --access public
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
